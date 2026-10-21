@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediFlow AI — The Future of Smart Pharmacies</title>
+  <meta name="description" content="MediFlow AI is the next-generation pharmacy management platform featuring AI-powered demand forecasting, medicine interaction checks, digital prescriptions, smart inventory, and multi-branch management." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Particle Background -->
+  <div id="particles-bg" aria-hidden="true"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="12" fill="url(#logoGrad)"/>
+          <path d="M20 8v24M8 20h24" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="20" cy="20" r="5" fill="white" opacity="0.3"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop stop-color="#2563EB"/>
+              <stop offset="1" stop-color="#0EA5E9"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">MediFlow</span>
+        <span class="logo-tag">AI</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-section-label">Overview</p>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-page="dashboard" id="nav-dashboard">
+          <span class="nav-icon">⊞</span>
+          <span class="nav-label">Dashboard</span>
+          <span class="nav-badge live">LIVE</span>
+        </a>
+        <a href="#" class="nav-item" data-page="analytics" id="nav-analytics">
+          <span class="nav-icon">◈</span>
+          <span class="nav-label">Analytics</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-section-label">Inventory</p>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item" data-page="inventory" id="nav-inventory">
+          <span class="nav-icon">⬡</span>
+          <span class="nav-label">Medicine Inventory</span>
+        </a>
+        <a href="#" class="nav-item" data-page="expiry" id="nav-expiry">
+          <span class="nav-icon">⏳</span>
+          <span class="nav-label">Expiry Alerts</span>
+          <span class="nav-badge warn">3</span>
+        </a>
+        <a href="#" class="nav-item" data-page="restock" id="nav-restock">
+          <span class="nav-icon">↺</span>
+          <span class="nav-label">Auto Restock</span>
+        </a>
+        <a href="#" class="nav-item" data-page="heatmap" id="nav-heatmap">
+          <span class="nav-icon">▦</span>
+          <span class="nav-label">Inventory Heatmap</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-section-label">Patient Care</p>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item" data-page="prescriptions" id="nav-prescriptions">
+          <span class="nav-icon">✦</span>
+          <span class="nav-label">Prescriptions</span>
+        </a>
+        <a href="#" class="nav-item" data-page="history" id="nav-history">
+          <span class="nav-icon">◉</span>
+          <span class="nav-label">Patient History</span>
+        </a>
+        <a href="#" class="nav-item" data-page="interaction" id="nav-interaction">
+          <span class="nav-icon">⚡</span>
+          <span class="nav-label">Drug Interactions</span>
+        </a>
+        <a href="#" class="nav-item" data-page="reminders" id="nav-reminders">
+          <span class="nav-icon">◎</span>
+          <span class="nav-label">WhatsApp Reminders</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-section-label">Operations</p>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item" data-page="orders" id="nav-orders">
+          <span class="nav-icon">⊕</span>
+          <span class="nav-label">Live Orders</span>
+          <span class="nav-badge success">12</span>
+        </a>
+        <a href="#" class="nav-item" data-page="billing" id="nav-billing">
+          <span class="nav-icon">▣</span>
+          <span class="nav-label">QR Billing</span>
+        </a>
+        <a href="#" class="nav-item" data-page="delivery" id="nav-delivery">
+          <span class="nav-icon">▷</span>
+          <span class="nav-label">Delivery Tracking</span>
+        </a>
+        <a href="#" class="nav-item" data-page="branches" id="nav-branches">
+          <span class="nav-icon">◱</span>
+          <span class="nav-label">Multi-Branch</span>
+        </a>
+        <a href="#" class="nav-item" data-page="emergency" id="nav-emergency">
+          <span class="nav-icon">✚</span>
+          <span class="nav-label">Emergency Stock</span>
+          <span class="nav-badge emergency">!</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-section-label">AI Suite</p>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item" data-page="ai" id="nav-ai">
+          <span class="nav-icon">✧</span>
+          <span class="nav-label">AI Assistant</span>
+        </a>
+        <a href="#" class="nav-item" data-page="forecast" id="nav-forecast">
+          <span class="nav-icon">◆</span>
+          <span class="nav-label">Demand Forecast</span>
+        </a>
+        <a href="#" class="nav-item" data-page="recommendations" id="nav-recommendations">
+          <span class="nav-icon">★</span>
+          <span class="nav-label">AI Recommendations</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <div class="user-avatar">PK</div>
+        <div class="user-info">
+          <span class="user-name">Dr. Pratik Kumar</span>
+          <span class="user-role">Chief Pharmacist</span>
+        </div>
+        <div class="user-status"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+    <!-- Top Header -->
+    <header class="topbar" id="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="breadcrumb">
+          <span class="breadcrumb-root">MediFlow AI</span>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current" id="breadcrumbCurrent">Dashboard</span>
+        </div>
+      </div>
+      <div class="topbar-center">
+        <div class="search-bar">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="globalSearch" placeholder="Search medicines, patients, orders…" aria-label="Global search" />
+          <span class="search-shortcut">⌘K</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-actions">
+          <button class="action-btn" id="notifBtn" aria-label="Notifications">
+            <span>🔔</span>
+            <span class="action-badge">5</span>
+          </button>
+          <button class="action-btn" aria-label="Settings">⚙</button>
+          <button class="action-btn ai-chat-btn" id="aiChatToggle" aria-label="AI Assistant">
+            <span>✧</span>
+            <span>AI</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Notification Panel -->
+    <div class="notif-panel" id="notifPanel">
+      <div class="notif-header">
+        <h3>Notifications</h3>
+        <button id="closeNotif">✕</button>
+      </div>
+      <div class="notif-list">
+        <div class="notif-item notif-warn">
+          <div class="notif-dot"></div>
+          <div class="notif-content">
+            <p class="notif-title">Expiry Alert: Amoxicillin 250mg</p>
+            <p class="notif-sub">Expires in 7 days — 42 units remaining</p>
+            <span class="notif-time">2 min ago</span>
+          </div>
+        </div>
+        <div class="notif-item notif-success">
+          <div class="notif-dot"></div>
+          <div class="notif-content">
+            <p class="notif-title">Restock Complete: Paracetamol 500mg</p>
+            <p class="notif-sub">500 units added from MedSupply Co.</p>
+            <span class="notif-time">15 min ago</span>
+          </div>
+        </div>
+        <div class="notif-item notif-info">
+          <div class="notif-dot"></div>
+          <div class="notif-content">
+            <p class="notif-title">New Prescription Received</p>
+            <p class="notif-sub">Patient: Ananya Sharma — Dr. Mehta</p>
+            <span class="notif-time">32 min ago</span>
+          </div>
+        </div>
+        <div class="notif-item notif-emergency">
+          <div class="notif-dot"></div>
+          <div class="notif-content">
+            <p class="notif-title">Emergency: Insulin Low Stock</p>
+            <p class="notif-sub">Only 5 units remaining at Branch 2</p>
+            <span class="notif-time">1 hr ago</span>
+          </div>
+        </div>
+        <div class="notif-item notif-info">
+          <div class="notif-dot"></div>
+          <div class="notif-content">
+            <p class="notif-title">AI Forecast Updated</p>
+            <p class="notif-sub">Demand spike predicted for next week</p>
+            <span class="notif-time">2 hr ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Content Container -->
+    <div class="page-container" id="pageContainer">
+      <!-- Pages are injected by JS -->
+    </div>
+  </main>
+
+  <!-- AI Chat Widget -->
+  <div class="ai-chat-widget" id="aiChatWidget">
+    <div class="ai-chat-header">
+      <div class="ai-chat-avatar">
+        <svg viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="18" fill="url(#aiGrad)"/>
+          <path d="M18 10v8l5 3" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="18" cy="18" r="4" fill="white" opacity="0.3"/>
+          <defs>
+            <linearGradient id="aiGrad" x1="0" y1="0" x2="36" y2="36">
+              <stop stop-color="#2563EB"/><stop offset="1" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div>
+        <p class="ai-chat-name">MediFlow AI</p>
+        <p class="ai-chat-status"><span class="status-dot"></span>Online</p>
+      </div>
+      <button class="ai-chat-close" id="aiChatClose">✕</button>
+    </div>
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="chat-message ai-message">
+        <p>Hello! I'm your AI pharmacy assistant. I can help with:</p>
+        <ul>
+          <li>Drug interaction checks</li>
+          <li>Medicine recommendations</li>
+          <li>Inventory queries</li>
+          <li>Prescription analysis</li>
+        </ul>
+        <p>How can I assist you today?</p>
+      </div>
+    </div>
+    <div class="ai-chat-input">
+      <input type="text" id="aiChatInput" placeholder="Ask about medicines, interactions…" />
+      <button id="aiChatSend">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <button class="ai-fab" id="aiFab" aria-label="Open AI Assistant">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="white"/>
+    </svg>
+    <span>✧</span>
+  </button>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/analytics.js"></script>
+  <script src="js/pages/inventory.js"></script>
+  <script src="js/pages/expiry.js"></script>
+  <script src="js/pages/restock.js"></script>
+  <script src="js/pages/heatmap.js"></script>
+  <script src="js/pages/prescriptions.js"></script>
+  <script src="js/pages/history.js"></script>
+  <script src="js/pages/interaction.js"></script>
+  <script src="js/pages/reminders.js"></script>
+  <script src="js/pages/orders.js"></script>
+  <script src="js/pages/billing.js"></script>
+  <script src="js/pages/delivery.js"></script>
+  <script src="js/pages/branches.js"></script>
+  <script src="js/pages/emergency.js"></script>
+  <script src="js/pages/ai.js"></script>
+  <script src="js/pages/forecast.js"></script>
+  <script src="js/pages/recommendations.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
